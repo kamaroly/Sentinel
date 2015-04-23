@@ -14,6 +14,8 @@ Register
             
             <h2>Register New Account</h2>
 
+              {{-- If Usernames are enabled, add username field --}}
+           @if (config('sentinel.allow_usernames')) 
             <div class="row">
                 <div class="small-2 columns">
                     <label for="right-label" class="right inline">Username</label>
@@ -23,7 +25,7 @@ Register
                     {{ ($errors->has('username') ? $errors->first('username', '<small class="error">:message</small>') : '') }}
                 </div>
             </div>
-
+            @endif
             <div class="row">
                 <div class="small-2 columns">
                     <label for="right-label" class="right inline">E-mail</label>

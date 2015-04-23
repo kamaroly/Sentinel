@@ -34,7 +34,11 @@ return [
     | By default, Sentry (and Sentinel) will only let a user log in using their
     | email address.  By setting 'allow_usernames' to true, a user can enter either
     | their username or their email address as a login credential.
-    |
+    |----------------------------------------------------------------------------
+    | Allow username on registration (added by Kamaro Lambert(kamaroly@gmail.com))
+    |-----------------------------------------------------------------------------
+    | If this option is set to false, sentinel won't show username field during 
+    | registration
     */
 
     'allow_usernames' => true,

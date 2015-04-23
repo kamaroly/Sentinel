@@ -14,7 +14,8 @@ Register
             <input name="_token" value="{{ csrf_token() }}" type="hidden">
 
             <h4>Register New Account</h4>
-
+{{-- If Usernames are enabled, add username field --}}
+           @if (config('sentinel.allow_usernames')) 
             <div class="row">
                 <div class="input-field col s12">
                     <input id="username" name="username" type="text" class="validate" value="{{ Input::old('username') }}">
@@ -22,7 +23,8 @@ Register
                     {{ ($errors->has('username') ? $errors->first('username') : '') }}
                 </div>
             </div>
-
+            @endif
+            
             <div class="row">
                 <div class="input-field col s12">
                     <input id="email" name="email" type="text" class="validate" value="{{ Input::old('email') }}">

@@ -12,10 +12,12 @@ Register
 
     <h2>Register New Account</h2>
 
-    <p>
-        <input placeholder="Username" name="username" type="text"  value="{{ Input::old('username') }}">
-        {{ ($errors->has('username') ? $errors->first('username') : '') }}
-    </p>
+     {{-- If Usernames are enabled, add username field --}}
+           @if (config('sentinel.allow_usernames'))        
+               <p>     <input class="form-control" placeholder="Username" name="username" type="text"  value="{{ Input::old('username') }}">
+                {{ ($errors->has('username') ? $errors->first('username') : '') }}
+             </p>
+            @endif
 
     <p>
         <input placeholder="E-mail" name="email" type="text"  value="{{ Input::old('email') }}">

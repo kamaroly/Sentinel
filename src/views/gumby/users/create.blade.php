@@ -12,12 +12,13 @@
 <div class="row">
         <ul class="five columns">
         <form method="POST" action="{{ route('sentinel.users.store') }}" accept-charset="UTF-8">
-            
+         {{-- If Usernames are enabled, add username field --}}
+           @if (config('sentinel.allow_usernames')) 
             <li class="field {{ ($errors->has('username')) ? 'danger' : '' }}">
                 <input class="text input" placeholder="Username" name="username" type="text" value="{{ Input::old('username') }}">
             </li> 
             {{ $errors->first('username',  '<p class="form_error">:message</p>') }}
-
+        @endif
             <li class="field {{ ($errors->has('email')) ? 'danger' : '' }}">
                 <input class="text input" placeholder="E-mail" name="email" type="text" value="{{ Input::old('email') }}">
             </li> 

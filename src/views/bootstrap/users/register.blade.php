@@ -10,11 +10,13 @@ Register
         <form method="POST" action="{{ route('sentinel.register.user') }}" accept-charset="UTF-8" id="register-form">
 
             <h2>Register New Account</h2>
-
+       {{-- If Usernames are enabled, add username field --}}
+           @if (config('sentinel.allow_usernames'))        
             <div class="form-group {{ ($errors->has('username')) ? 'has-error' : '' }}">
-                <input class="form-control" placeholder="Username" name="username" type="text" value="{{ Input::old('username') }}">
+                <input class="form-control" placeholder="Username" name="username" type="text"  value="{{ Input::old('username') }}">
                 {{ ($errors->has('username') ? $errors->first('username') : '') }}
             </div>
+            @endif
 
             <div class="form-group {{ ($errors->has('email')) ? 'has-error' : '' }}">
                 <input class="form-control" placeholder="E-mail" name="email" type="text" value="{{ Input::old('email') }}">
